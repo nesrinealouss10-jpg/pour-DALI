@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#a9d8f0">
+<title>Pour Dali ♡ — De Nesrine</title>
+<style>
+:root {
+  --blue: #a9d8f0;
+  --deep: #234d72;
+  --yellow: #ffe58a;
+  --cream: #fffaf0;
+  --pink: #ffb5c8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--blue);
+  color: var(--deep);
+  font-family: Georgia, "Times New Roman", serif;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; }
+a { color: inherit; }
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,250,240,.94);
+  padding: 14px; display: flex; gap: 15px;
+  justify-content: center; flex-wrap: wrap;
+  font: 13px Arial, sans-serif;
+}
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+section { padding: 76px 20px; scroll-margin-top: 55px; }
+.wrap { width: min(900px, 100%); margin: auto; }
+h1, h2, h3 { font-weight: normal; }
+h2 { font-size: clamp(28px, 5vw, 43px); text-align: center; }
+p { line-height: 1.85; }
+.hero {
+  min-height: 88vh; display: grid; place-items: center;
+  text-align: center; padding: 45px 20px;
+  background: radial-gradient(circle at 20% 20%, #fff2bc, transparent 30%),
+              linear-gradient(140deg, #b4e1f5, #e2f1fb);
+}
+.hero h1 { font-size: clamp(44px, 9vw, 82px); margin: 15px 0; }
+.hero p { max-width: 570px; margin: 18px auto 28px; }
+.eyebrow { letter-spacing: 3px; text-transform: uppercase; font: 11px Arial; }
+.j-watermelon {
+  display: inline-block; font-family: Georgia, serif;
+  font-size: 100px; font-weight: bold; line-height: 1;
+  color: #f66f87;
+  -webkit-text-stroke: 2px #348c60;
+  text-shadow: 3px 4px 0 #a7d96d;
+  position: relative;
+}
+.j-watermelon::after {
+  content: "•  •"; white-space: pre;
+  position: absolute; color: #3c4939;
+  font: bold 13px Arial; top: 40px; left: 39px;
+  -webkit-text-stroke: 0;
+}
+.btn {
+  display: inline-block; border: 0; border-radius: 30px;
+  background: var(--yellow); color: var(--deep);
+  padding: 14px 23px; text-decoration: none;
+  box-shadow: 0 5px 0 rgba(35,77,114,.13);
+  transition: transform .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.paper {
+  background: var(--cream); padding: clamp(23px, 5vw, 50px);
+  border-radius: 8px 30px 8px 30px;
+  box-shadow: 0 12px 35px #234d7218;
+}
+.center { text-align: center; }
+.soft { background: #e9f5fb; }
+.yellow { background: #fff0ad; }
+.timeline { max-width: 650px; margin: auto; }
+.event {
+  padding: 10px 0 10px 25px;
+  margin: 25px 0; border-left: 3px solid #f2ca59;
+}
+.event h3 { font-size: 25px; margin-bottom: 8px; }
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px; margin-top: 30px;
+}
+.card {
+  background: var(--cream); padding: 25px; border-radius: 18px;
+  box-shadow: 0 7px 20px #234d7210;
+}
+.card h3 { font-size: 23px; }
+.gallery {
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 15px; margin-top: 30px;
+}
+.photo {
+  background: var(--cream); border-radius: 17px;
+  overflow: hidden; text-align: center;
+}
+.photo img {
+  display: block; width: 100%; aspect-ratio: 4/3;
+  object-fit: cover; background: #d5eaf4;
+}
+.photo p { padding: 0 12px 12px; }
+.placeholder {
+  aspect-ratio: 4/3; display: grid; place-items: center;
+  background: linear-gradient(135deg,#d3eaf6,#fff0ad);
+  font-size: 38px;
+}
+.letter {
+  max-width: 690px; margin: auto;
+  background: var(--cream); padding: clamp(25px,6vw,58px);
+  border-radius: 4px 30px 4px 30px;
+  box-shadow: 0 12px 40px #234d7218;
+}
+.music {
+  position: fixed; right: 15px; bottom: 15px; z-index: 20;
+  border: 1px solid #ffffff; border-radius: 30px;
+  padding: 12px 17px; background: var(--yellow);
+  color: var(--deep); box-shadow: 0 4px 20px #234d7220;
+}
+#musicStatus { font: 12px Arial; margin-top: 7px; }
+footer { padding: 35px 15px; text-align: center; }
+#surprise { display: none; }
+#surprise.show { display: block; animation: appear .9s ease both; }
+.fade { animation: appear 1.2s ease both; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media(max-width:520px) {
+  nav { gap: 10px; font-size: 12px; }
+  section { padding: 55px 16px; }
+  .gallery { grid-template-columns: 1fr; }
+  .music { right: 10px; bottom: 10px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation: none !important; scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="accueil">
+  <div class="fade">
+    <div class="j-watermelon" aria-label="J">J</div>
+    <div class="eyebrow">Un petit univers rien qu'à nous</div>
+    <h1>Pour Dali ♡</h1>
+    <p>De la part de Nesrine, avec tout mon amour.</p>
+    <p>Certaines rencontres deviennent les plus belles histoires.</p>
+    <button class="btn" id="openGift">Ouvrir mon cadeau 💌</button>
+    <p id="welcomeMessage" aria-live="polite"></p>
+  </div>
+</header>
+
+<nav aria-label="Navigation principale">
+  <a href="#histoire">Notre histoire</a>
+  <a href="#amour">Ce que j'aime</a>
+  <a href="#souvenirs">Nos souvenirs</a>
+  <a href="#lettre">Ma lettre</a>
+  <a href="#avenir">Notre avenir</a>
+</nav>
+
+<main>
+<section id="histoire">
+  <div class="wrap">
+    <h2>Notre histoire ♡</h2>
+    <div class="timeline">
+      <article class="event">
+        <h3>Notre rencontre 🌙</h3>
+        <p>On s'est rencontrés pendant le Ramadan. Je ne savais pas encore que cette rencontre prendrait une si jolie place dans mon cœur.</p>
+      </article>
+      <article class="event">
+        <h3>Notre première soirée ✨</h3>
+        <p>C'est le soir de notre première soirée que je suis tombée amoureuse de toi. Il y a des instants qui changent quelque chose en nous et qu'on n'oublie jamais.</p>
+      </article>
+      <article class="event">
+        <h3>31 mai 💙</h3>
+        <p>Le jour où nous avons officialisé notre histoire. Une date précieuse qui marque le début officiel de notre aventure à deux.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="amour" class="soft">
+  <div class="wrap">
+    <h2>Ce que j'aime chez toi 💛</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Ton regard 👀</h3>
+        <p>J'aime tes yeux et cette façon que tu as de me regarder. Il y a des choses que les mots n'arrivent pas à expliquer, mais que ton regard me fait ressentir.</p>
+      </article>
+      <article class="card">
+        <h3>Ta gentillesse 🌼</h3>
+        <p>J'aime ta gentillesse, tes petites attentions et cette belle façon d'être toi.</p>
+      </article>
+      <article class="card">
+        <h3>Ta chaleur ☀️</h3>
+        <p>J'aime la douceur et la chaleur que tu m'apportes, cette sensation de réconfort quand je suis avec toi.</p>
+      </article>
+      <article class="card">
+        <h3>Et Junior 😉</h3>
+        <p>Parce que Junior aussi mérite sa petite place dans notre univers. Petit clin d'œil rien que pour lui !</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="souvenirs">
+  <div class="wrap">
+    <h2>Nos souvenirs 📸</h2>
+    <p class="center">Nos petits moments, nos grands sourires et tous ces souvenirs qui nous appartiennent.</p>
+    <div class="gallery">
+      <article class="photo">
+        <div class="placeholder" id="p1">♡</div>
+        <p>Notre premier bisou au lac</p>
+      </article>
+      <article class="photo">
+        <div class="placeholder" id="p2">☀</div>
+        <p>Notre premier petit-déjeuner</p>
+      </article>
+      <article class="photo">
+        <div class="placeholder" id="p3">✿</div>
+        <p>Notre date au restaurant STELLAR</p>
+      </article>
+      <article class="photo">
+        <div class="placeholder" id="p4">♡</div>
+        <p>Notre première soirée</p>
+      </article>
+      <article class="photo">
+        <div class="placeholder" id="p5">✧</div>
+        <p>Un de nos plus beaux moments</p>
+      </article>
+      <article class="photo">
+        <div class="placeholder" id="p6">💛</div>
+        <p>Encore plein de souvenirs à venir</p>
+      </article>
+    </div>
+    <p class="center">Pour ajouter tes photos, suis les instructions sous le code.</p>
+  </div>
+</section>
+
+<section id="lettre" class="yellow">
+  <div class="letter">
+    <p class="eyebrow">À ouvrir avec le cœur</p>
+    <h2>Quelques mots pour toi, mon amour 💌</h2>
+    <p>Mon amour,</p>
+    <p>Pour ton anniversaire, je te souhaite tout le bonheur du monde, énormément de réussite et tout ce que ton cœur désire.</p>
+    <p>Chaque jour, je prie pour que tu réussisses, pour que tes projets se réalisent et pour que tu puisses être fier de la personne que tu deviens.</p>
+    <p>J'espère de tout mon cœur qu'on pourra construire un bel avenir ensemble, réaliser nos rêves, traverser les étapes de la vie main dans la main et continuer à écrire notre histoire.</p>
+    <p>Je veux te voir heureux, te voir réussir et être là pour partager tes joies, tes victoires et même les jours un peu plus difficiles.</p>
+    <p>Je ne sais pas tout ce que l'avenir nous réserve, mais je sais que j'ai envie de continuer à découvrir la vie avec toi, de créer encore mille souvenirs et de garder précieusement tous ces petits moments qui font que notre histoire est la nôtre.</p>
+    <p>Merci d'être toi, pour tes yeux, ta gentillesse, ta chaleur et toutes ces petites choses qui me font t'aimer encore davantage.</p>
+    <p>Joyeux anniversaire, mon amour. Je te souhaite une vie remplie de bonheur, de réussite et de belles choses. Et j'espère que nous aurons la chance d'en construire beaucoup ensemble.</p>
+    <p>Avec tout mon amour,</p>
+    <p><strong>Nesrine 💙</strong></p>
+  </div>
+</section>
+
+<section id="avenir">
+  <div class="wrap center">
+    <h2>Et si le plus beau restait à venir ? ✨</h2>
+    <div class="paper">
+      <p>J'espère qu'un jour, on regardera toutes ces photos en souriant, en se rappelant nos débuts et tout le chemin qu'on aura parcouru.</p>
+      <p>J'espère qu'on réalisera nos rêves, qu'on célébrera nos réussites et qu'on continuera à construire quelque chose de beau, à notre rythme.</p>
+      <p>Aujourd'hui, on écrit encore les premières pages. Et j'ai hâte de découvrir les suivantes avec toi.</p>
+      <button class="btn" id="reveal">J'ai encore quelque chose pour toi… 🎁</button>
+    </div>
+  </div>
+</section>
+
+<section id="surprise">
+  <div class="wrap center paper">
+    <div class="j-watermelon">J</div>
+    <h2>Joyeux anniversaire, mon amour 💙</h2>
+    <p>Et ce n'est que le début de notre histoire…</p>
+    <p>Je t'aime, Dali.</p>
+    <p>— Nesrine ♡</p>
+    <div aria-hidden="true" style="font-size:28px">✧ 💛 ✧ 💙 ✧</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  Fait avec amour par Nesrine, pour Dali ♡
+</footer>
+
+<button class="music" id="musicButton" aria-label="Lancer la musique" aria-pressed="false">
+  ♫ Écouter notre chanson
+</button>
+<audio id="song" preload="none" loop>
+  <source src="music/notre-chanson.mp3" type="audio/mpeg">
+</audio>
+<div id="musicStatus" role="status" aria-live="polite"
+ style="position:fixed;right:14px;bottom:66px;z-index:19;background:#fffaf0;padding:8px 12px;border-radius:12px;max-width:260px;display:none"></div>
+
+<script>
+const song = document.getElementById('song');
+const musicButton = document.getElementById('musicButton');
+const musicStatus = document.getElementById('musicStatus');
+
+function status(message) {
+  musicStatus.textContent = message;
+  musicStatus.style.display = 'block';
+}
+
+musicButton.addEventListener('click', async () => {
+  if (!song.paused) {
+    song.pause();
+    return;
+  }
+  try {
+    await song.play();
+  } catch (error) {
+    status("Ajoute ton fichier audio autorisé dans le dossier music, puis réessaie.");
+  }
+});
+
+song.addEventListener('play', () => {
+  musicButton.textContent = 'Ⅱ Mettre en pause';
+  musicButton.setAttribute('aria-label', 'Mettre la musique en pause');
+  musicButton.setAttribute('aria-pressed', 'true');
+  musicStatus.style.display = 'none';
+});
+song.addEventListener('pause', () => {
+  musicButton.textContent = '♫ Écouter notre chanson';
+  musicButton.setAttribute('aria-label', 'Lancer la musique');
+  musicButton.setAttribute('aria-pressed', 'false');
+});
+song.addEventListener('error', () => {
+  status("La musique n'est pas encore ajoutée. Tu peux visiter le site et ajouter ton fichier MP3 plus tard.");
+});
+
+document.getElementById('openGift').addEventListener('click', async () => {
+  document.getElementById('welcomeMessage').textContent =
+    "Bienvenue dans notre petit univers, mon amour. ♡";
+  document.getElementById('histoire').scrollIntoView({behavior:'smooth'});
+  if (song.paused) {
+    try { await song.play(); }
+    catch (error) {
+      status("Ajoute ton fichier audio autorisé dans le dossier music pour écouter notre chanson.");
+    }
+  }
+});
+
+document.getElementById('reveal').addEventListener('click', () => {
+  const surprise = document.getElementById('surprise');
+  surprise.classList.add('show');
+  surprise.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
